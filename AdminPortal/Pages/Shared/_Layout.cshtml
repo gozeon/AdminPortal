@@ -48,6 +48,14 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
+    @* 加载水印 *@
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <script src="https://unpkg.com/watermark-js-plus/dist/index.iife.min.js" 
+        data-text="@User.Identity?.Name" 
+        onload="InitWatermark(event)"></script>
+    }
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
