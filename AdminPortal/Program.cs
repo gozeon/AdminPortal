@@ -71,6 +71,9 @@ builder.Services.AddOptions<AdminOption>().Bind(builder.Configuration.GetSection
 
 builder.Services.AddHostedService<SeedHostedService>();
 
+builder.Services.AddMemoryCache();
+builder.Services.AddScoped<ILookupService, LookupService>();
+
 // 健康检查
 builder.Services.AddHealthChecks().AddDbContextCheck<ApplicationDbContext>("Database").AddCheck("self", () => HealthCheckResult.Healthy());
 

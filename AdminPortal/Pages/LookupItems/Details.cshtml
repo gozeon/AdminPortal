@@ -1,0 +1,85 @@
+﻿@page
+@model AdminPortal.Pages.LookupItems.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>LookupItem</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.Code)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.Code)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.Parent)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.Parent.Code)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.Level)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.Level)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.Sort)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.Sort)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.Path)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.Path)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.Type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.IsEnabled)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.IsEnabled)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.IsSystem)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.IsSystem)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.CreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.CreatedAt)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.LookupItem.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

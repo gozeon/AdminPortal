@@ -1,0 +1,87 @@
+﻿@page
+@model AdminPortal.Pages.LookupItems.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>LookupItem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="LookupItem.Id" />
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="LookupItem.Name" class="control-label"></label>
+                <input asp-for="LookupItem.Name" class="form-control" aria-required="true"/>
+                <span asp-validation-for="LookupItem.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="LookupItem.Code" class="control-label"></label>
+                <input asp-for="LookupItem.Code" class="form-control" aria-required="true"/>
+                <span asp-validation-for="LookupItem.Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LookupItem.Description" class="control-label"></label>
+                <input asp-for="LookupItem.Description" class="form-control" />
+                <span asp-validation-for="LookupItem.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LookupItem.ParentId" class="control-label"></label>
+                <select asp-for="LookupItem.ParentId" class="form-control" asp-items="ViewBag.ParentId" ></select>
+                <span asp-validation-for="LookupItem.ParentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LookupItem.Level" class="control-label"></label>
+                <input asp-for="LookupItem.Level" class="form-control" />
+                <span asp-validation-for="LookupItem.Level" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LookupItem.Sort" class="control-label"></label>
+                <input asp-for="LookupItem.Sort" class="form-control" />
+                <span asp-validation-for="LookupItem.Sort" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LookupItem.Path" class="control-label"></label>
+                <input asp-for="LookupItem.Path" class="form-control" />
+                <span asp-validation-for="LookupItem.Path" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LookupItem.Type" class="control-label"></label>
+                <input asp-for="LookupItem.Type" class="form-control" />
+                <span asp-validation-for="LookupItem.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="LookupItem.IsEnabled" /> @Html.DisplayNameFor(model => model.LookupItem.IsEnabled)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="LookupItem.IsSystem" /> @Html.DisplayNameFor(model => model.LookupItem.IsSystem)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="LookupItem.CreatedAt" class="control-label"></label>
+                <input asp-for="LookupItem.CreatedAt" class="form-control" />
+                <span asp-validation-for="LookupItem.CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

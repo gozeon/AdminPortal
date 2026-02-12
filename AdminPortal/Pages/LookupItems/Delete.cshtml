@@ -1,0 +1,88 @@
+﻿@page
+@model AdminPortal.Pages.LookupItems.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>LookupItem</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.Code)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.Code)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.Parent)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.Parent.Code)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.Level)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.Level)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.Sort)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.Sort)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.Path)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.Path)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.Type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.IsEnabled)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.IsEnabled)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.IsSystem)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.IsSystem)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LookupItem.CreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LookupItem.CreatedAt)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="LookupItem.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
