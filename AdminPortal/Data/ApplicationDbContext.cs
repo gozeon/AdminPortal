@@ -1,11 +1,17 @@
 ﻿using AdminPortal.Models;
+using Audit.EntityFramework;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace AdminPortal.Data
 {
-    public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : IdentityDbContext(options)
+    public class ApplicationDbContext : AuditIdentityDbContext<IdentityUser>
     {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
+        }
+
         public DbSet<Permission> Permissions => Set<Permission>();
         public DbSet<LookupItem> LookupItems => Set<LookupItem>();
 

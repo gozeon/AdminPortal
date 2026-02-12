@@ -1,7 +1,10 @@
 using AdminPortal.Data;
+using AdminPortal.Models;
 using AdminPortal.Options;
 using AdminPortal.Providers;
 using AdminPortal.Services;
+using Audit.Core;
+using Audit.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Identity;
@@ -21,7 +24,17 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages()
+    .AddMvcOptions(options =>
+    {
+        // 审计
+        options.Filters.Add(new AuditPageFilter()
+        {
+            IncludeHeaders = true,
+            IncludeModel = true
+
+        });
+    });
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
@@ -76,6 +89,13 @@ builder.Services.AddScoped<ILookupService, LookupService>();
 
 // 健康检查
 builder.Services.AddHealthChecks().AddDbContextCheck<ApplicationDbContext>("Database").AddCheck("self", () => HealthCheckResult.Healthy());
+
+// Audit配置，输出到文件
+Audit.Core.Configuration.Setup()
+    .UseFileLogProvider(_ => _
+        .DirectoryBuilder(_ => Path.Combine(AppContext.BaseDirectory, "AuditLogs"))
+        .FilenameBuilder(ev => $"{ev.StartDate:yyyyMMddHHmmssffff}.json"))
+    .WithCreationPolicy(EventCreationPolicy.InsertOnEnd);
 
 var app = builder.Build();
 
