@@ -3,10 +3,12 @@ using AdminPortal.Options;
 using AdminPortal.Providers;
 using AdminPortal.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -69,6 +71,9 @@ builder.Services.AddOptions<AdminOption>().Bind(builder.Configuration.GetSection
 
 builder.Services.AddHostedService<SeedHostedService>();
 
+// 健康检查
+builder.Services.AddHealthChecks().AddDbContextCheck<ApplicationDbContext>("Database").AddCheck("self", () => HealthCheckResult.Healthy());
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -90,6 +95,17 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+// 健康检查
+app.MapHealthChecks("/health");
+app.MapHealthChecks("/health/live", new HealthCheckOptions
+{
+    Predicate = _ => false   // 不检查依赖，只检查程序是否存活
+});
+
+app.MapHealthChecks("/health/ready", new HealthCheckOptions
+{
+    Predicate = _ => true    // 检查所有依赖（数据库等）
+});
 
 app.MapStaticAssets();
 app.MapRazorPages()

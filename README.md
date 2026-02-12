@@ -5,3 +5,4 @@
 - Role
 - Permission
 - 水印(需登录)
+- 健康检查
