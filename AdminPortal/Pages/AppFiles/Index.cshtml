@@ -1,0 +1,71 @@
+﻿@page
+@model AdminPortal.Pages.AppFiles.IndexModel
+@using Humanizer
+@using X.PagedList.Mvc.Core
+@{
+}
+
+@{
+	ViewData["Title"] = "文件管理";
+}
+
+<h2>文件管理</h2>
+
+<hr />
+
+<h4>上传文件</h4>
+
+<form method="post" enctype="multipart/form-data" asp-page-handler="Upload">
+	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+	<div class="mb-3">
+		<input type="file" asp-for="UploadFile" class="form-control" multiple />
+	</div>
+
+	<button type="submit" class="btn btn-primary">
+		上传
+	</button>
+</form>
+
+<hr />
+
+<h4>文件列表</h4>
+
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>名称</th>
+			<th>大小</th>
+			<th>类型</th>
+			<th>上传时间</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var file in Model.AppFilesPagedList)
+		{
+			<tr>
+				<td>
+					<a href="@file.Url" target="_blank">
+						@file.OriginalName
+					</a>
+				</td>
+				<td>@file.Size.Bytes().Humanize()</td>
+				<td>@file.ContentType</td>
+				<td>@file.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+@Html.PagedListPager(Model.AppFilesPagedList,
+	page => Url.Page("Index", new { pageNumber=page, pageSize=Model.Query.PageSize }),
+	new PagedListRenderOptions
+	{
+		LiElementClasses = new string[] { "page-item" },
+		PageClasses = new string[] { "page-link" }
+	})
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

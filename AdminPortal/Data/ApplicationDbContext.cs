@@ -14,6 +14,7 @@ namespace AdminPortal.Data
 
         public DbSet<Permission> Permissions => Set<Permission>();
         public DbSet<LookupItem> LookupItems => Set<LookupItem>();
+        public DbSet<AppFile> AppFiles => Set<AppFile>();
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -33,6 +34,8 @@ namespace AdminPortal.Data
                 b.HasIndex(x => new { x.Type, x.Code }).IsUnique();
                 b.HasIndex(x => new { x.ParentId, x.Name });
             });
+
+            builder.Entity<AppFile>().HasIndex(x => x.Hash).IsUnique();
 
             base.OnModelCreating(builder);
         }

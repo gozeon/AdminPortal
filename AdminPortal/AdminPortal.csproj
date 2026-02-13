@@ -11,6 +11,7 @@
     <PackageReference Include="Audit.EntityFramework.Core" Version="32.0.0" />
     <PackageReference Include="Audit.EntityFramework.Identity.Core" Version="32.0.0" />
     <PackageReference Include="Audit.Mvc.Core" Version="32.0.0" />
+    <PackageReference Include="Humanizer" Version="3.0.1" />
     <PackageReference Include="MailKit" Version="4.14.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="10.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.3" />
@@ -22,6 +23,8 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="10.0.3" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="10.0.2" />
+    <PackageReference Include="X.PagedList.EF" Version="10.5.9" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="10.5.9" />
   </ItemGroup>
 
 </Project>

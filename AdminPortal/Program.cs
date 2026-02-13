@@ -87,6 +87,9 @@ builder.Services.AddHostedService<SeedHostedService>();
 builder.Services.AddMemoryCache();
 builder.Services.AddScoped<ILookupService, LookupService>();
 
+builder.Services.AddSingleton<IFileStorage, LocalFileStorage>();
+builder.Services.AddScoped<IFileService, FileService>();
+
 // 健康检查
 builder.Services.AddHealthChecks().AddDbContextCheck<ApplicationDbContext>("Database").AddCheck("self", () => HealthCheckResult.Healthy());
 

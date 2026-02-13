@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 appsettings.Local.json
+AdminPortal/wwwroot/uploads/*
