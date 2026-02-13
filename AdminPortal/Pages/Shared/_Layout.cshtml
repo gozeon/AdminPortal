@@ -23,6 +23,17 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                通用管理
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li asp-permission="Permission:Permissions.Read"><a class="dropdown-item" asp-area="Identity" asp-page="/Permissions/Index">权限管理</a></li>
+                                <li asp-permission="Permission:Role.Read"><a class="dropdown-item" asp-area="Identity" asp-page="/Role/Index">角色管理</a></li>
+                                <li asp-permission="Permission:User.Read"><a class="dropdown-item" asp-area="Identity" asp-page="/User/Index">用户管理</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-page="/AppFiles/Index">文件管理</a></li>
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
@@ -51,8 +62,8 @@
     @* 加载水印 *@
     @if (User.Identity?.IsAuthenticated == true)
     {
-        <script src="https://unpkg.com/watermark-js-plus/dist/index.iife.min.js" 
-        data-text="@User.Identity?.Name" 
+        <script src="https://unpkg.com/watermark-js-plus/dist/index.iife.min.js"
+        data-text="@User.Identity?.Name"
         onload="InitWatermark(event)"></script>
     }
 

@@ -54,7 +54,10 @@ namespace AdminPortal.Data
                 new Permission { Name = "Permission.Read", Group = "Permission", DisplayName = "查看权限" },
                 new Permission { Name = "Permission.Delete", Group = "Permission", DisplayName = "删除权限" },
                 new Permission { Name = "Permission.Edit", Group = "Permission", DisplayName = "修改权限" },
-                new Permission { Name = "Permission.Add", Group = "Permission", DisplayName = "增加权限" }
+                new Permission { Name = "Permission.Add", Group = "Permission", DisplayName = "增加权限" },
+
+                new Permission { Name = "AppFile.Read", Group = "AppFile", DisplayName = "查看文件" },
+                new Permission { Name = "AppFile.Add", Group = "AppFile", DisplayName = "增加文件" }
             };
 
             db.Permissions.AddRange(defaultPermissions);

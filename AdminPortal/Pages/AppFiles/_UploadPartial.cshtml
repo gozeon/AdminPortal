@@ -1,0 +1,16 @@
+@model IndexModel
+
+<h4>上传文件</h4>
+
+<form method="post" enctype="multipart/form-data" asp-page-handler="Upload">
+	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+	<div class="mb-3">
+		<input type="file" asp-for="UploadFile" class="form-control" multiple />
+	</div>
+
+	<button type="submit" class="btn btn-primary">
+		上传
+	</button>
+</form>
+
+<hr />

@@ -1,4 +1,5 @@
 using AdminPortal.Data;
+using AdminPortal.Filters;
 using AdminPortal.Models;
 using AdminPortal.Options;
 using AdminPortal.Providers;
@@ -34,6 +35,9 @@ builder.Services.AddRazorPages()
             IncludeModel = true
 
         });
+
+        // 权限，用于action
+        options.Filters.Add<AuthorizeHandlerFilter>();
     });
 
 builder.Services.Configure<IdentityOptions>(options =>

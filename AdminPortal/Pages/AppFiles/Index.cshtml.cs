@@ -1,15 +1,17 @@
+using AdminPortal.Attributes;
 using AdminPortal.Models;
 using AdminPortal.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using X.PagedList;
 
 namespace AdminPortal.Pages.AppFiles
 {
+    [Authorize(Policy = "Permission:AppFile.Read")]
     public class IndexModel : PageModel
     {
         private readonly IFileService _fileService;
-
         public IndexModel(IFileService fileService)
         {
             _fileService = fileService;
@@ -28,6 +30,7 @@ namespace AdminPortal.Pages.AppFiles
             AppFilesPagedList = await _fileService.GetPagedListAsync(Query);
         }
 
+        [AuthorizeHandler("Permission:AppFile.Add")]
         public async Task<IActionResult> OnPostAsync()
         {
             var maxFilesCount = 10;
