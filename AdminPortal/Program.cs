@@ -94,6 +94,13 @@ builder.Services.AddScoped<ILookupService, LookupService>();
 builder.Services.AddSingleton<IFileStorage, LocalFileStorage>();
 builder.Services.AddScoped<IFileService, FileService>();
 
+// 文件预览
+builder.Services.AddScoped<IFilePreviewFactory, FilePreviewFactory>();
+builder.Services.AddScoped<IFilePreviewService, FilePreviewService>();
+builder.Services.AddScoped<IFilePreviewStrategy, TextFilePreviewStrategy>();
+builder.Services.AddScoped<IFilePreviewStrategy, ImageFilePreviewStrategy>();
+builder.Services.AddScoped<IFilePreviewStrategy, PDFFilePreviewStrategy>();
+
 // 健康检查
 builder.Services.AddHealthChecks().AddDbContextCheck<ApplicationDbContext>("Database").AddCheck("self", () => HealthCheckResult.Healthy());
 

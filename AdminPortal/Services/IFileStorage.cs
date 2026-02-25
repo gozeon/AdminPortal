@@ -8,5 +8,10 @@ namespace AdminPortal.Services
         Task<string> SaveAsync(Stream stream, string fileName);
         Task DeleteAsync(string path);
         string GetUrl(string path);
+
+        /// <summary>
+        /// 读取文件内容为字符串（用于文本文件预览）
+        /// </summary>
+        Task<string> ReadAsStringAsync(string storagePath);
     }
 }

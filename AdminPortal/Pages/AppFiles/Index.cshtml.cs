@@ -43,7 +43,7 @@ namespace AdminPortal.Pages.AppFiles
 
             foreach (var item in UploadFile)
             {
-                if(item.Length == 0)
+                if (item.Length == 0)
                 {
                     continue;
                 }

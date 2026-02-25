@@ -24,6 +24,7 @@
 			<th>大小</th>
 			<th>类型</th>
 			<th>上传时间</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -38,6 +39,11 @@
 				<td>@file.Size.Bytes().Humanize()</td>
 				<td>@file.ContentType</td>
 				<td>@file.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+				<td>
+					<a href="/AppFiles/Preview/@file.Id" class="btn btn-sm btn-info" title="预览">
+						<i class="fas fa-eye"></i> 预览
+					</a>
+				</td>
 			</tr>
 		}
 	</tbody>

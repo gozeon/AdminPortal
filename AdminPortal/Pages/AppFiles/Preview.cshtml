@@ -1,0 +1,29 @@
+﻿@page "/AppFiles/Preview/{id:int}"
+@model AdminPortal.Pages.AppFiles.PreviewModel
+@{
+	ViewData["Title"] = "文件预览";
+	Layout = null;
+}
+
+@if (Model.PreviewResult.Success)
+{
+	@switch (Model.PreviewResult.PreviewType)
+	{
+		case Services.FilePreviewType.Image:
+			<partial name="_ImagePreview" model="Model"></partial>
+			break;
+		case Services.FilePreviewType.PDF:
+			<partial name="_PdfPreview" model="Model"></partial>
+			break;
+		case Services.FilePreviewType.Text:
+			<partial name="_TextPreview" model="Model"></partial>
+			break;
+		default:
+			<partial name="_UnsupportedPreview" model="Model"></partial>
+			break;
+	}
+}
+else
+{
+	<partial name="_UnsupportedPreview" model="Model"></partial>
+}

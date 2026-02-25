@@ -33,7 +33,7 @@ namespace AdminPortal.Services
         public async Task<IPagedList<AppFile>> GetPagedListAsync(PagedRequest request)
         {
             return await _applicationDbContext.AppFiles.OrderByDescending(x => x.CreatedAt).ToPagedListAsync(request.PageNumber, request.PageSize);
-}
+        }
 
         public async Task<AppFile> UploadAsync(IFormFile file)
         {
@@ -41,7 +41,7 @@ namespace AdminPortal.Services
             {
                 var hash = await ComputeHashAsync(stream);
                 var existing = await _applicationDbContext.AppFiles.FirstOrDefaultAsync(x => x.Hash == hash);
-                if(existing is not null)
+                if (existing is not null)
                 {
                     return existing;
                 }

@@ -13,7 +13,7 @@ namespace AdminPortal.Services
     {
         private readonly ApplicationDbContext _applicationDbContext;
         private readonly IMemoryCache _cache;
-       
+
         public LookupService(ApplicationDbContext applicationDbContext, IMemoryCache memoryCache)
         {
             _applicationDbContext = applicationDbContext;
@@ -70,9 +70,9 @@ namespace AdminPortal.Services
                 });
 
             var roots = new List<LookupTreeDto>();
-            foreach(var item in items)
+            foreach (var item in items)
             {
-                if(item.ParentId.HasValue && lookup.ContainsKey(item.ParentId.Value))
+                if (item.ParentId.HasValue && lookup.ContainsKey(item.ParentId.Value))
                 {
                     lookup[item.ParentId.Value].Children.Add(lookup[item.Id]);
                 }

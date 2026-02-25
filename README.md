@@ -10,3 +10,4 @@
 - Audit 审计(Audit)
 - 通用文件管理
 - 通用分页(X.PagedList)
+- 文件预览(pdf,txt,image)
