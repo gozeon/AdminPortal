@@ -3,9 +3,10 @@
 
 using AdminPortal.Data;
 using AdminPortal.Models;
+using AdminPortal.Services.FileStorage;
 using Microsoft.EntityFrameworkCore;
 
-namespace AdminPortal.Services
+namespace AdminPortal.Services.FilePreview
 {
     /// <summary>
     /// 文件预览服务

@@ -4,7 +4,7 @@
 using AdminPortal.Models;
 using X.PagedList;
 
-namespace AdminPortal.Services
+namespace AdminPortal.Services.FileStorage
 {
     public interface IFileService
     {

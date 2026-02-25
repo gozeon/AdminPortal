@@ -4,7 +4,7 @@
 using AdminPortal.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace AdminPortal.Services
+namespace AdminPortal.Services.Lookup
 {
     public interface ILookupService
     {

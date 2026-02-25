@@ -2,8 +2,9 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 
 using AdminPortal.Models;
+using AdminPortal.Services.FileStorage;
 
-namespace AdminPortal.Services
+namespace AdminPortal.Services.FilePreview
 {
     /// <summary>
     /// 文本文件预览策略

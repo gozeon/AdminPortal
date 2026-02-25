@@ -1,5 +1,7 @@
 ﻿@page "/AppFiles/Preview/{id:int}"
 @model AdminPortal.Pages.AppFiles.PreviewModel
+@using AdminPortal.Services.FilePreview
+
 @{
 	ViewData["Title"] = "文件预览";
 	Layout = null;
@@ -9,13 +11,13 @@
 {
 	@switch (Model.PreviewResult.PreviewType)
 	{
-		case Services.FilePreviewType.Image:
+		case FilePreviewType.Image:
 			<partial name="_ImagePreview" model="Model"></partial>
 			break;
-		case Services.FilePreviewType.PDF:
+		case FilePreviewType.PDF:
 			<partial name="_PdfPreview" model="Model"></partial>
 			break;
-		case Services.FilePreviewType.Text:
+		case FilePreviewType.Text:
 			<partial name="_TextPreview" model="Model"></partial>
 			break;
 		default:

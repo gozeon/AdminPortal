@@ -3,7 +3,7 @@
 
 using AdminPortal.Models;
 
-namespace AdminPortal.Services
+namespace AdminPortal.Services.FilePreview
 {
     public class PDFFilePreviewStrategy : IFilePreviewStrategy
     {

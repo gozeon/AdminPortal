@@ -3,7 +3,7 @@
 
 using System.Text;
 
-namespace AdminPortal.Services
+namespace AdminPortal.Services.FileStorage
 {
     public class LocalFileStorage : IFileStorage
     {

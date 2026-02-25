@@ -9,7 +9,7 @@ using X.PagedList;
 using X.PagedList.EF;
 using X.PagedList.Extensions;
 
-namespace AdminPortal.Services
+namespace AdminPortal.Services.FileStorage
 {
     public class FileService : IFileService
     {

@@ -1,6 +1,6 @@
 using AdminPortal.Data;
 using AdminPortal.Models;
-using AdminPortal.Services;
+using AdminPortal.Services.FilePreview;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
