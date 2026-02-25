@@ -20,7 +20,7 @@ namespace AdminPortal.Models
             get => _pageSize;
             set
             {
-                if(value < 1)
+                if (value < 1)
                 {
                     _pageSize = DefaultPageSize;
                 }

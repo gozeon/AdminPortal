@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AdminPortal.Data;
+using AdminPortal.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using AdminPortal.Data;
-using AdminPortal.Models;
 
 namespace AdminPortal.Pages.LookupItems
 {
@@ -30,13 +30,13 @@ namespace AdminPortal.Pages.LookupItems
                 return NotFound();
             }
 
-            var lookupitem =  await _context.LookupItems.FirstOrDefaultAsync(m => m.Id == id);
+            var lookupitem = await _context.LookupItems.FirstOrDefaultAsync(m => m.Id == id);
             if (lookupitem == null)
             {
                 return NotFound();
             }
             LookupItem = lookupitem;
-           ViewData["ParentId"] = new SelectList(_context.LookupItems, "Id", "Code");
+            ViewData["ParentId"] = new SelectList(_context.LookupItems, "Id", "Code");
             return Page();
         }
 

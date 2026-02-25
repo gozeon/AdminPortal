@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AdminPortal.Data;
+using AdminPortal.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using AdminPortal.Data;
-using AdminPortal.Models;
 
 namespace AdminPortal.Pages.LookupItems
 {
@@ -21,7 +21,7 @@ namespace AdminPortal.Pages.LookupItems
 
         public IActionResult OnGet()
         {
-        ViewData["ParentId"] = new SelectList(_context.LookupItems, "Id", "Code");
+            ViewData["ParentId"] = new SelectList(_context.LookupItems, "Id", "Code");
             return Page();
         }
 

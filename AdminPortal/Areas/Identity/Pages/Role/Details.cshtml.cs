@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using AdminPortal.Data;
 using AdminPortal.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -5,7 +6,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
 
 namespace AdminPortal.Areas.Identity.Pages.Role
 {

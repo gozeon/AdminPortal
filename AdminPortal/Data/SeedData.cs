@@ -1,12 +1,12 @@
-﻿using AdminPortal.Models;
+﻿using System.Data;
+using System.Security.Claims;
+using AdminPortal.Models;
 using AdminPortal.Options;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.CodeAnalysis.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
-using System.Data;
-using System.Security.Claims;
 using static Microsoft.CodeAnalysis.CSharp.SyntaxTokenParser;
 
 namespace AdminPortal.Data
